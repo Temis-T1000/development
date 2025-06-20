@@ -1,4 +1,4 @@
-
+import userData from '../fixtures/userData.json'
 
 const selectorsList = {
     usernameField: "[name='username']",
@@ -9,16 +9,6 @@ const selectorsList = {
     wrongCredentialAlert: "[role='alert']"
 }
 
-const userData = {
-    userSucess: {
-      username: 'Admin',
-      password: 'admin123'
-    },
-    userFail: {
-      username: 'teste',
-      password: 'teste'
-    }
-}
 
 describe('Orange HRM Tests', () => {
   it('Login - Sucess', () => {
