@@ -8,6 +8,8 @@ const selectorsList = {
     dashboardLayout: ".orangehrm-upgrade-layout",
     wrongCredentialAlert: "[role='alert']",
     myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",
+    firstNameField: "[name='firstName']",
+    lastNameField: "[name='middleName']",
 }
 
 
@@ -20,6 +22,10 @@ describe('Orange HRM Tests', () => {
     cy.location('pathname').should('eq', '/web/index.php/dashboard/index')
     cy.get(selectorsList.dashboardLayout)
     cy.get(selectorsList.myInfoButton).click
+    cy.get(selectorsList.firstNameField).type('Firstname Test')
+    cy.get(selectorsList.lastNameField).type('Lastname Test')
+    
+    
     
   })
   it('Login - Fail', () => {
