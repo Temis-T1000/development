@@ -9,7 +9,9 @@ const selectorsList = {
     wrongCredentialAlert: "[role='alert']",
     myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",
     firstNameField: "[name='firstName']",
-    lastNameField: "[name='middleName']",
+    middleNameField: "[name='middleName']",
+    lastNameField: "[name='lastName']",
+    genericField: ".oxd-input"
 }
 
 
@@ -21,9 +23,16 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorsList.loginButton).click()
     cy.location('pathname').should('eq', '/web/index.php/dashboard/index')
     cy.get(selectorsList.dashboardLayout)
-    cy.get(selectorsList.myInfoButton).click
+    cy.get(selectorsList.myInfoButton).click()
     cy.get(selectorsList.firstNameField).type('Firstname Test')
+    cy.get(selectorsList.middleNameField).type('Middlename Test')
     cy.get(selectorsList.lastNameField).type('Lastname Test')
+    cy.get(selectorsList.genericField).eq(4).clear().type('Empl-Test')
+    cy.get(selectorsList.genericField).eq(5).clear().type('Other Test')
+    cy.get(selectorsList.genericField).eq(6).clear().type('Drivers Number Test')
+    cy.get(selectorsList.genericField).eq(7).clear().type('2035/12/12')
+    cy.get(selectorsList.genericField).eq(9).clear().type('TestField  Test')
+    
     
     
     
