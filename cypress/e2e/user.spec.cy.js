@@ -14,8 +14,8 @@ const selectorsList = {
     genericField: ".oxd-input",
     dateField: ".oxd-date-input",
     genericComboBox: ".oxd-select-text--active",
-    thirdiItemComboBox: ".oxd-select-dropdown > :nth-child(3)",
     secondeItemComboBox: ".oxd-select-dropdown > :nth-child(36)",
+    thirdiItemComboBox: ".oxd-select-dropdown > :nth-child(3)",
     buttonSaveSubmit: "[type='submit']",
 }
 
@@ -39,7 +39,7 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorsList.genericField).eq(9).clear().type('TestField')
     cy.get(selectorsList.genericComboBox).eq(0).click({force: true})
     cy.get(selectorsList.secondeItemComboBox).click()
-     cy.get(selectorsList.genericComboBox).eq(1).click({force: true})
+    cy.get(selectorsList.genericComboBox).eq(1).click({force: true})
     cy.get(selectorsList.thirdiItemComboBox).click()
     cy.get(selectorsList.buttonSaveSubmit).eq(0).click({force: true})
     cy.get('body').should('contain', 'Successfully Updated')
