@@ -16,7 +16,12 @@ const selectorsList = {
     genericComboBox: ".oxd-select-text--active",
     secondeItemComboBox: ".oxd-select-dropdown > :nth-child(36)",
     thirdiItemComboBox: ".oxd-select-dropdown > :nth-child(3)",
+    dateBirthday: ".oxd-input--active",
+    radioOption: ".oxd-radio-wrapper",
     buttonSaveSubmit: "[type='submit']",
+
+    
+    bloodItemComboBox: ".oxd-select-dropdown > :nth-child(2)",
 }
 
 
@@ -36,17 +41,23 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorsList.genericField).eq(5).clear().type('Other Test')
     cy.get(selectorsList.genericField).eq(6).clear().type('Drivers Number Test')
     cy.get(selectorsList.dateField).eq(0).clear().type('2025-03-10')  
-    cy.get(selectorsList.genericField).eq(9).clear().type('TestField')
     cy.get(selectorsList.genericComboBox).eq(0).click({force: true})
     cy.get(selectorsList.secondeItemComboBox).click()
     cy.get(selectorsList.genericComboBox).eq(1).click({force: true})
     cy.get(selectorsList.thirdiItemComboBox).click()
+    cy.get(selectorsList.dateBirthday).eq(8).clear().type('1988-28-06')
+    cy.get('.--close').click()
+    cy.get(selectorsList.radioOption).eq(1).click()    
     cy.get(selectorsList.buttonSaveSubmit).eq(0).click({force: true})
     cy.get('body').should('contain', 'Successfully Updated')
     
-    
-    
+    cy.get(selectorsList.genericComboBox).eq(2).click({force: true})
+    cy.get(selectorsList.bloodItemComboBox).click()
+    cy.get(selectorsList.genericField).eq(9).clear().type('TestField')
+    cy.get(selectorsList.buttonSaveSubmit).eq(1).click({force: true})
   })
+
+  
   it('Login - Fail', () => {
     cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.userFail.username)
