@@ -1,9 +1,9 @@
 class DahsboardPage {
     selectorsList() {
-        const selectors = {
-            dashboardLayout: ".orangehrm-upgrade-layout"
+    const selectors = {
+            dashboardLayout: ".orangehrm-upgrade-layout",
         }
-        return selectors
+        return selectors;
     }
  
    
