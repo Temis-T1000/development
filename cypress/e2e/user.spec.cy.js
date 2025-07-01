@@ -1,17 +1,18 @@
 
 import LoginPage from '../pages/loginPage.js'
+import DashboardPage from '../pages/dashboardPage.js'
 
 
 import userData from '../fixtures/userData.json'
 
 const loginPage = new LoginPage()
+const dashboardPage = new DashboardPage()
 
 
 describe('Orange HRM Tests', () => {
   
   const selectorsList = {
-      
-      dashboardLayout: ".orangehrm-upgrade-layout",
+
       myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",
       firstNameField: "[name='firstName']",
       middleNameField: "[name='middleName']",
@@ -32,11 +33,11 @@ describe('Orange HRM Tests', () => {
   it.only('User info upDate - Sucess', () => {
 
     loginPage.accessLoginPage()
-    loginPage.loginWithUser(userData.userSucess.username, userData.userSucess.password)   
+    loginPage.loginWithUser(userData.userSucess.username, userData.userSucess.password)
+    dashboardPage.accessDashboardPage()   
     
 
-    cy.location('pathname').should('eq', '/web/index.php/dashboard/index')
-    cy.get(selectorsList.dashboardLayout)
+
     cy.get(selectorsList.myInfoButton).click()
     cy.get(selectorsList.firstNameField).clear().type('Firstname Test')
     cy.get(selectorsList.middleNameField).clear().type('Middle Test')
