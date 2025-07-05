@@ -1,13 +1,15 @@
 
 import LoginPage from '../pages/loginPage.js'
 import DashboardPage from '../pages/dashboardPage.js'
-import MyInfoPage from '../pages/myInfoPage.js'
+import MenuPage from '../pages/menuPage.js'
+// import MyInfoPage from '../pages/myInfoPage.js'
 
 import userData from '../fixtures/userData.json'
 
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
-const myinfoPage = new MyInfoPage()
+const menuPage = new MenuPage()
+
 
 
 describe('Orange HRM Tests', () => {
@@ -19,9 +21,11 @@ describe('Orange HRM Tests', () => {
   it.only('User info upDate - Sucess', () => {
 
     loginPage.accessLoginPage()
-    loginPage.loginWithUser(userData.userSucess.username, userData.userSucess.password)
+    loginPage.loginWithAnyUser(userData.userSucess.username, userData.userSucess.password)
+
     dashboardPage.accessDashboardPage()
-    myinfoPage.accessMyInfoPage()       
+         
+    menuPage.accessMyInfo()
 
   })
   

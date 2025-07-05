@@ -1,4 +1,4 @@
-class DahsboardPage {
+class DashboardPage {
     selectorsList() {
     const selectors = {
             dashboardLayout: ".orangehrm-upgrade-layout",
@@ -9,8 +9,8 @@ class DahsboardPage {
    
     accessDashboardPage() {
         cy.location('pathname').should('eq', '/web/index.php/dashboard/index')
-        cy.get(this.selectorsList().dashboardLayout)
+        cy.get(this.selectorsList().dashboardLayout).should('be.visible')
     }
 }
 
-export default DahsboardPage
+export default DashboardPage
