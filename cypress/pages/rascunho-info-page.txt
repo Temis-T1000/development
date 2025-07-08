@@ -1,0 +1,73 @@
+class MyInfoPage {
+    selectorsList() {
+        const selectors = {
+            // myInfoButton: "[href='/web/index.php/pim/viewMyDetails']", 
+            firstNameField: "[name='firstName']", //1 firstname
+            middleNameField: "[name='middleName']", //2 middlename
+            lastNameField: "[name='lastName']", //3 lastname
+            employeeField: ".oxd-input", //4 employee id / antigo genericField
+            otherField: ".oxd-date-input", //5 other id / antigo datefield
+            genericComboBox: ".oxd-select-text--active", //6 (8) drive license/ license expire date / blood item combobox
+
+
+
+
+
+
+            nationality: ".oxd-select-dropdown > :nth-child(36)",  //8 nationality
+            marital: ".oxd-select-dropdown > :nth-child(3)", // 9 marital
+            dateBirthday: ".oxd-input--active", // 10
+            radioOption: ".oxd-radio-wrapper", //11
+            bloodItemComboBox: ".oxd-select-dropdown > :nth-child(2)", // 12 blood type
+            buttonSaveSubmit: "[type='submit']",    // button save   
+        }
+        return selectors;
+    }
+        accessMyInfoPage() {
+            
+            
+            
+            
+            cy.get(this.selectorsList().genericComboBox).eq(2).click({force: true}) 
+            cy.get(this.selectorsList().bloodItemComboBox).click() //12
+            cy.get(this.selectorsList().testField).eq(9).clear().type('TestField') //13
+        
+        }
+        
+        fillPersonalDetails(firstName, midName, lastName) {
+            // cy.get(this.selectorsList().myInfoButton).click()
+            cy.get(this.selectorsList().firstNameField).clear().type(firstName) //1
+            cy.get(this.selectorsList().middleNameField).clear().type(midName) //2
+            cy.get(this.selectorsList().lastNameField).clear().type(lastName)  /3
+        }
+        saveForm() {
+            cy.get(this.selectorsList().buttonSaveSubmit).eq(0).click({force: true})   // button save
+        }
+        fillEmployeeDetails(employeId, otherId, driversLicenseNumber, licenseExpiryDate, dateBirthday) {
+            cy.get(this.selectorsList().employeeField).eq(4).clear().type(employeId) // 4 enployee id
+            cy.get(this.selectorsList().genericField).eq(5).clear().type(otherId) // 5 other id
+
+            cy.get(this.selectorsList().genericField).eq(6).clear().type(driversLicenseNumber) // 6 drivers license number
+            cy.get(this.selectorsList().expireDateField).eq(0).clear().type(licenseExpiryDate) // 7 license expire date
+                  
+            cy.get(this.selectorsList().genericComboBox).eq(0).click({force: true}) // 
+            cy.get(this.selectorsList().nationality).click()    // ok 8
+            cy.get(this.selectorsList().genericComboBox).eq(1).click({force: true})
+            cy.get(this.selectorsList().marital).click() //9
+
+            cy.get(this.selectorsList().dateBirthday).eq(8).clear().type(dateBirthday) // 10
+            cy.get('.--close').click()
+            cy.get(this.selectorsList().radioOption).eq(1).click()   // 11
+
+        }
+            saveForm() {
+        cy.get(this.selectorsList().buttonSaveSubmit).eq(1).click({force: true})
+        }
+
+
+        accessBodyContain() {
+            cy.get('body').should('contain', 'Successfully Updated')
+        }
+}
+
+ export default MyInfoPage;
