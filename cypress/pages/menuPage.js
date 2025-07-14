@@ -8,7 +8,7 @@ class MenuPage {
             recruitmentButton: "[href='/web/index.php/recruitment/viewRecruitmentModule']",
             myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",
             perfomanceButton: "[href='/web/index.php/performance/viewPerformanceModule']",
-            // dashboardButton: ".orangehrm-upgrade-layout",
+            dashboardButton: "[href='/web/index.php/dashboard/index']",
             directoryButton: "[href='/web/index.php/directory/viewDirectory']",
             maintenanceButton: "[href='/web/index.php/maintenance/viewMaintenanceModule']",
             clainButton: "[href='/web/index.php/claim/viewClaimModule']",
@@ -33,7 +33,9 @@ class MenuPage {
     }
     accessMyInfo() {          
         cy.get(this.selectorList().myInfoButton).click()
-        // cy.get(this.selectorList().dashBoardButton).click()
+    }
+    accessDashboardPage() {
+        cy.get(this.selectorList().dashboardButton).click()
     }
     accessPerfomance() {
         cy.get(this.selectorList().perfomanceButton).click()

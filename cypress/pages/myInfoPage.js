@@ -17,11 +17,12 @@ class MyInfoPage {
         }
         return selectors;
     }
-                accessMyInfoPage() {
+            accessMyInfoPage() {
             cy.get(this.selectorsList().myInfoButton).click()
             cy.get(this.selectorsList().firstNameField).clear().type('Firstname Test') // 1 - firstname
             cy.get(this.selectorsList().middleNameField).clear().type('Middle Test') // 2 - middlename
             cy.get(this.selectorsList().lastNameField).clear().type('Lastname Test') // 3 - lastname
+
             cy.get(this.selectorsList().genericField).eq(4).clear().type('Empl-Test') // 4 - employee id
             cy.get(this.selectorsList().genericField).eq(5).clear().type('Other Test') // 5 - other id
             cy.get(this.selectorsList().genericField).eq(6).clear().type('Drivers Number Test') //6 - drivers number
@@ -40,12 +41,13 @@ class MyInfoPage {
             cy.get(this.selectorsList().bloodItemComboBox).click() // 12 -  blood type
             cy.get(this.selectorsList().genericField).eq(9).clear().type('TestField') //  13 - array: 9 test field
             cy.get(this.selectorsList().buttonSaveSubmit).eq(1).click({force: true}) // button save 2
-    }
-
-
-        accessBodyContain() {
+        }
+            accessBodyContain() {
             cy.get('body').should('contain', 'Successfully Updated')
         }
+
+
+
 }
 
  export default MyInfoPage;
