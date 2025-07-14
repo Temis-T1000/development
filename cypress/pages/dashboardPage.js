@@ -8,8 +8,8 @@ class DashboardPage {
  
    
     checkDashboardPage() {
-        cy.location('pathname').should('eq', '/web/index.php/dashboard/index')
         cy.get(this.selectorsList().dashboardButton).click()
+        cy.location('pathname').should('eq', '/web/index.php/dashboard/index')
     }
 
 }

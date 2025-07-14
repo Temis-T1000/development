@@ -1,16 +1,15 @@
 import userData from '../fixtures/userData.json'
 
 import LoginPage from '../pages/loginPage'
-// import DashboardPage from '../pages/dashboardPage'
+import DashboardPage from '../pages/dashboardPage'
 import MenuPage from '../pages/menuPage'
-// import MyInfoPage from '../pages/myInfoPage'
+import MyInfoPage from '../pages/myInfoPage'
 
 
 const loginPage = new LoginPage()
-// const dashboardPage = new DashboardPage()
+const dashboardPage = new DashboardPage()
 const menuPage = new MenuPage()
-// const myinfoPage = new MyInfoPage()
-
+const myinfoPage = new MyInfoPage()
 
 
 describe('Orange HRM Tests', () => {
@@ -24,10 +23,10 @@ describe('Orange HRM Tests', () => {
     loginPage.accessLoginPage()
     loginPage.loginWithAnyUser(userData.userSucess.username, userData.userSucess.password)
     menuPage.accessAdmin()
-    // myinfoPage.accessMyInfoPage()
-    menuPage.accessMyInfo()
-    menuPage.checkDashboardPage()
-    // dashboardPage.accessDashboardPage()
+    myinfoPage.accessMyInfoPage()
+    // menuPage.accessMyInfo()
+    // menuPage.checkDashboardPage()
+    dashboardPage.checkDashboardPage()
          
 
   })
