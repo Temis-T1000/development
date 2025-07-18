@@ -6,12 +6,12 @@ class MenuPage {
             leaveButton: "[href='/web/index.php/leave/viewLeaveModule']",
             timeButton: "[href='/web/index.php/time/viewTimeModule']",
             recruitmentButton: "[href='/web/index.php/recruitment/viewRecruitmentModule']",
-            myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",
-            perfomanceButton: "[href='/web/index.php/performance/viewPerformanceModule']",
-            dashboardButton: "[href='/web/index.php/dashboard/index']",
+            myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",         
+            performanceButton: "[href='/web/index.php/performance/viewPerformanceModule']",          
+            dashboardButton: "[href='/web/index.php/dashboard/index']", 
             directoryButton: "[href='/web/index.php/directory/viewDirectory']",
             maintenanceButton: "[href='/web/index.php/maintenance/viewMaintenanceModule']",
-            clainButton: "[href='/web/index.php/claim/viewClaimModule']",
+            claimButton: "[href='/web/index.php/claim/viewClaimModule']",
             buzzButton: "[href='/web/index.php/buzz/viewBuzz']",
         }
         return selectors;
@@ -34,20 +34,24 @@ class MenuPage {
     accessMyInfo() {          
         cy.get(this.selectorList().myInfoButton).click()
     }
-    accessDashboardPage() {
+    checkDashboardPage() {
         cy.get(this.selectorList().dashboardButton).click()
     }
-    accessPerfomance() {
-        cy.get(this.selectorList().perfomanceButton).click()
+    accessPerformance() {
+        cy.get(this.selectorList().performanceButton).click()
     }
     accessDirectory() {
         cy.get(this.selectorList().directoryButton).click()
     }
-    accessMaintenance() {
-        cy.get(this.selectorList().maintenanceButton).click()
-    }
-    accessClain() {
-        cy.get(this.selectorList().clainButton).click()
+    // accessMaintenance() {
+    //     cy.get(this.selectorList().maintenanceButton).click()
+    // }
+    // accessLoginMaintenance(username, password) {   
+    //     cy.get(this.selectorList().passwordField).type(password)
+    //     cy.get(this.selectorList().loginButton).click()  
+    // }
+    accessClaim() {
+        cy.get(this.selectorList().claimButton).click()
     }
     accessBuzz() {
         cy.get(this.selectorList().buzzButton).click()
